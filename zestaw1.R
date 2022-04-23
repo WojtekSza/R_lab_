@@ -3,27 +3,19 @@ getwd()
 df <- read.csv("autaSmall.csv")
 head(df,5)
 
-
 #2 Pobranie danych z REST API
 
 install.packages("jsonline")
 install.packages("httr")
-
-
 library(jsonlite)
 require(httr)
 
 endpoint <- "https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=1765994b51ed366c506d5dc0d0b07b77"
-
 response <- GET(endpoint)
-
 weather <- as.data.frame(fromJSON(endpoint))
-
 View(weather)
 
 #3 Funkcja zapisujaca porcjami danych csv do tabeli SQLite
-
-
 ?read.table
 
 install.packages("DBI")
